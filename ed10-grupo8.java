@@ -65,3 +65,21 @@ void ct01_quando_dados_validos_cadastra_com_sucesso() {
     List<Livro> lista  = biblioteca.getLivros(); 
     assertEquals("", lista.get(0).getIsbn()); 
 }
+
+@Test
+void ct04_cadastrar_livro_com_titulo_em_branco() {
+    Biblioteca biblioteca = new Biblioteca(); 
+    Livro umLivro = new Livro("1111", "", "Pressman"); 
+    biblioteca.add(umLivro); 
+    List<Livro> lista  = biblioteca.getLivros(); 
+    assertEquals("", lista.get(0).getTitulo()); 
+}
+ 
+@Test
+void ct05_cadastrar_livro_com_autor_em_branco() {
+    Biblioteca biblioteca = new Biblioteca(); 
+    Livro umLivro = new Livro("1111", "Engenharia de Software", ""); 
+    biblioteca.add(umLivro); 
+    List<Livro> lista  = biblioteca.getLivros(); 
+    assertEquals("", lista.get(0).getAutor()); 
+}
