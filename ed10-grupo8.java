@@ -58,6 +58,14 @@ void ct01_quando_dados_validos_cadastra_com_sucesso() {
     assertEquals (1, biblioteca.size()); 
 }
 
+@Test void ct02_cadastrar_livro_com_isbn_ja_cadastrado() { 
+    Biblioteca biblioteca = new Biblioteca(); 
+    Livro umLivro = new Livro("1234", "Engenharia de Software", "Pressman"); 
+    biblioteca.add(umLivro); 
+    List<Livro> lista  = biblioteca.getLivros(); 
+    assertEquals("1234", lista.get(0).getIsbn()); 
+}
+
 @Test void ct03_cadastrar_livro_com_isbn_em_branco() { 
     Biblioteca biblioteca = new Biblioteca(); 
     Livro umLivro = new Livro("", "Engenharia de Software", "Pressman"); 
